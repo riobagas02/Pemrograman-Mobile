@@ -1,0 +1,22 @@
+Soal!
+Rangkumlah materi dari codelab ini menjadi poin-poin penting yang dapat Anda 
+gunakan untuk membantu proses pengembangan aplikasi mobile menggunakan framework Flutter.
+
+Jawaban:
+1.  Bahasa Dart sebagai Inti Flutter: 
+    Dart adalah bahasa pemrograman inti untuk framework Flutter. Pemahaman tentang Dart adalah dasar untuk bekerja dengan Flutter.
+
+2.  Kelebihan Dart:
+    Productive Tooling          : Alat-alat untuk analisis kode, plugin IDE, dan ekosistem paket yang besar.
+    Garbage Collection          : Mengelola memori secara otomatis.
+    Type Annotations (Opsional) : Menyediakan keamanan dan konsistensi data.
+    Statically Typed            : Mendukung type-safe dan type inference untuk menemukan bug saat kompilasi.
+    Portability                 : Dapat dikompilasi ke kode native dan juga JavaScript.
+
+3.  DartPad: 
+    Alat online untuk mencoba dan mempelajari Dart secara langsung. Sangat membantu untuk eksperimen dan pengembangan awal.
+
+4.  Function di Dart:
+    - Function main adalah titik awal eksekusi kode dalam aplikasi Dart.
+    - Tipe data yang dikembalikan oleh function perlu didefinisikan terlebih dahulu, 
+      misalnya void untuk function yang tidak mengembalikan data.
