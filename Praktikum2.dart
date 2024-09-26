@@ -9,7 +9,7 @@
 
 // Hasil Error
 
-// Langkah 1
+// Langkah 2
 // void main() {
 //   int counter = 1;
 //   while (counter < 33) {
@@ -28,6 +28,9 @@
 //   counter++;
 // } while (counter < 77);
 // }
+
+// Hasilnya error
+
 
 // Langkah3
 
