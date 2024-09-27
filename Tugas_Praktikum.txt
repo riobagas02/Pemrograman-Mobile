@@ -1,0 +1,9 @@
+Tugas Praktikum
+
+Silakan selesaikan Praktikum 1 sampai 5, lalu dokumentasikan berupa screenshot hasil pekerjaan Anda beserta penjelasannya!
+Jelaskan yang dimaksud Functions dalam bahasa Dart!
+Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!
+Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya!
+Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!
+Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!
+Jelaskan dengan contoh cara membuat return multiple value di Functions!
