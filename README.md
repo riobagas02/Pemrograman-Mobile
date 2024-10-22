@@ -9,4 +9,4 @@ NIM      : 2241720193
 
 A new flutter project
 
-![Screenshots hello_world](images/01.png)
+![Screenshots hello_world](hello_world/images/01.png)
