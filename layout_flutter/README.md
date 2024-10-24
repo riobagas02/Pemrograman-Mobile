@@ -15,10 +15,6 @@ Langkah 2: Buka file lib/main.dart
 
 ![Screenshots Langkah 2](images\1_2.png)
 
-Langkah 3: Identifikasi layout diagram
-
-- - - 
-
 Langkah 4: Implementasi title row
 
 ![Screenshots Langkah 1](images\1_4.png)
