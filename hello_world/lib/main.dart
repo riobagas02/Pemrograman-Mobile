@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/basic_widgets/loading_cupertino.dart'; 
+import 'package:hello_world/basic_widgets/fab_widget.dart'; // Impor fab_widget.dart
 
 void main() {
   runApp(const MyApp());
@@ -54,15 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const LoadingCupertino(), 
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const FabWidget(), // Menggunakan FabWidget di sini
     );
   }
 }
