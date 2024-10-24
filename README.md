@@ -23,4 +23,14 @@ Langkah 2: Image Widget
 
 # Praktikum 5: Menerapkan Widget Material Design dan iOS Cupertino
 
+Langkah 1: Cupertino Button dan Loading Bar
 
+![Screenshots Langkah 1](hello_world/images/5_1.png)
+
+Langkah 2: Floating Action Button (FAB)
+
+![Screenshots Langkah 2](hello_world/images/5_2.png)
+
+Langkah 3: Scaffold Widget
+
+![Screenshots Langkah 3](hello_world/images/5_3.png)
