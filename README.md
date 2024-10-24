@@ -9,11 +9,11 @@ NIM      : 2241720193
 
 Langkah 1: Buat Project Baru
 
-![Screenshots Langkah 1](layout_flutter/images\1_1.png)
+![Screenshots Langkah 1](images\1_1.png)
 
 Langkah 2: Buka file lib/main.dart
 
-![Screenshots Langkah 2](layout_flutter/images\1_2.png)
+![Screenshots Langkah 2](images\1_2.png)
 
 Langkah 3: Identifikasi layout diagram
 
@@ -21,4 +21,4 @@ Langkah 3: Identifikasi layout diagram
 
 Langkah 4: Implementasi title row
 
-![Screenshots Langkah 1](layout_flutter/images\1_4.png)
+![Screenshots Langkah 1](images\1_4.png)
