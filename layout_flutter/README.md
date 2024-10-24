@@ -33,6 +33,8 @@ Langkah 3: Tambah button section ke body
 
 ![Screenshots Langkah 3](images/2_3.png)
 
+Hasil Akhir Praktikum 2
+
 ![Screenshots Hasil](images/2_4.png)
 
 
