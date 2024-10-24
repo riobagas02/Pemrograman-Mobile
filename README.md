@@ -34,3 +34,15 @@ Langkah 2: Floating Action Button (FAB)
 Langkah 3: Scaffold Widget
 
 ![Screenshots Langkah 3](hello_world/images/5_3.png)
+
+Langkah 4: Dialog Widget
+
+![Screenshots Langkah 4](hello_world/images/5_4.gif)
+
+Langkah 5: Input dan Selection Widget
+
+![Screenshots Langkah 5](hello_world/images/5_5.png)
+
+Langkah 6: Date and Time Pickers
+
+![Screenshots Langkah 6](hello_world/images/5_6.png)
