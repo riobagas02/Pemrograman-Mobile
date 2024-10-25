@@ -8,6 +8,6 @@ NIM      : 2241720193
 
 # Tugas Praktikum 1
 
-![Hasil Output Tugas Praktikum 1](images/Tugas_1.png)
+![Hasil Output Tugas Praktikum 1](images/Tugas_Praktikum_1.png)
 
 
