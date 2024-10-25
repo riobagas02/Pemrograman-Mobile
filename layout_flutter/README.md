@@ -2,7 +2,7 @@
 
 NAMA     : Rio Bagas Hermawan
 
-NIM      : 2241720193
+NIM      : 2241720194
 
 
 # Praktikum 1: Membangun Layout di Flutter
@@ -37,4 +37,34 @@ Hasil Akhir Praktikum 2
 
 ![Screenshots Hasil](images/2_4.png)
 
+# Praktikum 3: Implementasi text section
+ 
+Langkah 1: Buat widget textSection
 
+![Screenshots Langkah 1](images/3_1.png)
+
+Langkah 2: Tambahkan variabel text section ke body
+
+![Screenshots Langkah 2](images/3_2.png)
+
+Hasil Akhir Praktikum 3
+
+![Screenshots Hasil](images/3_3.png)
+
+# Praktikum 4: Implementasi image section
+
+Langkah 1: Siapkan aset gambar
+
+![Screenshots Langkah 1](images/4_1.png)
+
+Langkah 2: Tambahkan gambar ke body
+
+![Screenshots Langkah 2](images/4_2.png)
+
+Langkah 3: Terakhir, ubah menjadi ListView
+
+![Screenshots Langkah 3](images/4_3.png)
+
+Hasil Akhir Praktikum 4
+
+![Screenshots Hasil](images/4_4.png)

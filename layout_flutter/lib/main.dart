@@ -12,28 +12,25 @@ class MyApp extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            /* soal 1 */
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /* soal 2 */
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'Wisata Gunung di Batu',
+                    'Air Terjun Tumpak Sewu',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 const Text(
-                  'Batu, Malang, Indonesia',
+                  'Malang, Jawa Timur',
                   style: TextStyle(color: Colors.grey),
                 ),
               ],
             ),
           ),
-          /* soal 3 */
           const Icon(
             Icons.star,
             color: Colors.red,
@@ -54,16 +51,47 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Air Terjun Tumpak Sewu adalah surga tersembunyi di Jawa Timur, terletak di perbatasan Lumajang dan Malang. '
+            'Air terjun megah setinggi 120 meter ini dikenal karena formasi uniknya yang menyerupai tirai raksasa dengan '
+            'puluhan aliran air yang jatuh serentak dari tebing-tebing tinggi. Nama "Tumpak Sewu", yang berarti "seribu air terjun", '
+            'tepat menggambarkan keajaiban alam ini. Dikelilingi oleh hutan tropis yang subur dan pegunungan hijau, Tumpak Sewu menawarkan '
+            'pemandangan memukau dari atas bukit atau sensasi menyegarkan dari dasar lembah. Tempat ini adalah destinasi impian bagi para petualang '
+            'yang mencari keindahan alam yang tiada banding.',
+            softWrap: true,
+            textAlign: TextAlign.justify,
+          ),
+          SizedBox(height: 16),
+          Text(
+            'Rio Bagas Hermawan | 2241720193',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter layout: Rio Bagas Hermawan | 2241720193',
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: Column(
+        body: ListView(
           children: [
+            Image.asset(
+              'images/air_terjun.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
             titleSection,
             buttonSection,
+            textSection,
           ],
         ),
       ),
