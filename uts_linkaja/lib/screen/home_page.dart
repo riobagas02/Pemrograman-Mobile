@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,9 +11,33 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoScroll();
+  }
+
+  void _startAutoScroll() {
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_pageController.hasClients) {
+        int nextPage = (_currentPage + 1) % 7;
+        _pageController.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+        setState(() {
+          _currentPage = nextPage;
+        });
+      }
+    });
+  }
 
   @override
   void dispose() {
+    _timer?.cancel();
     _pageController.dispose();
     super.dispose();
   }
@@ -31,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Image.asset(
                     'images/linkaja_logo.png',
-                    width: 50,
+                    width: 50, 
                   ),
                   Row(
                     children: [
@@ -123,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            // Kotak 1
+            // Kotak 1 
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               padding: const EdgeInsets.all(16),
@@ -150,7 +175,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            // Kotak 2
+            // Kotak 2 
             GridView.count(
               crossAxisCount: 4,
               crossAxisSpacing: 10,
@@ -170,25 +195,48 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
 
-            // Banner iklan geser manual
+            // Banner iklan otomatis
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               height: 150,
-              child: PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
+              child: Stack(
                 children: [
-                  Image.asset('images/iklan1.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan2.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan3.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan4.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan5.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan6.png', fit: BoxFit.cover),
-                  Image.asset('images/iklan7.png', fit: BoxFit.cover),
+                  PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
+                    children: [
+                      Image.asset('images/iklan1.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan2.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan3.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan4.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan5.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan6.png', fit: BoxFit.cover),
+                      Image.asset('images/iklan7.png', fit: BoxFit.cover),
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 8,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(7, (index) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 3),
+                          width: _currentPage == index ? 12 : 8,
+                          height: _currentPage == index ? 12 : 8,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: _currentPage == index ? Colors.red : Colors.grey,
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
                 ],
               ),
             ),
