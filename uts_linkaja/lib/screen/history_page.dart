@@ -27,8 +27,8 @@ class HistoryPage extends StatelessWidget {
                 children: [
                   Image.asset(
                     'images/pending_history.png', 
-                    width: 150,
-                    height: 150,
+                    width: 400,
+                    height: 400,
                   ),
                   const SizedBox(height: 16),
                   const Text(

@@ -1,53 +1,67 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'images/linkaja_logo.png', 
-              width: 80,
-            ),
-            const Row(
-              children: [
-                Icon(Icons.favorite, color: Colors.white),
-                SizedBox(width: 10),
-                Icon(Icons.headset_mic, color: Colors.white),
-              ],
-            ),
-          ],
-        ),
-      ),
+      backgroundColor: const Color.fromARGB(214, 240, 241, 246),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'images/linkaja_logo.png',
+                    width: 50,
+                  ),
+                  Row(
+                    children: [
+                      _buildIconWithBox(Icons.favorite),
+                      const SizedBox(width: 10),
+                      _buildIconWithBox(Icons.headset_mic),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
             // Kotak profil
             Container(
               padding: const EdgeInsets.all(16),
               margin: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: const Color.fromARGB(255, 255, 0, 0),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Hai, Rio Bagas Hermawan',
+                    'Hi, Rio Bagas Hermawan',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      // Kotak Sisa Saldo
                       Expanded(
                         child: Container(
                           padding: const EdgeInsets.all(12),
@@ -59,12 +73,12 @@ class HomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Sisa Saldo',
+                                'Your Balance',
                                 style: TextStyle(color: Colors.black, fontSize: 16),
                               ),
                               SizedBox(height: 5),
                               Text(
-                                'Rp 100.000.000', 
+                                'Rp 100.000.000',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -76,7 +90,6 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      // Kotak Saldo Bonus
                       Expanded(
                         child: Container(
                           padding: const EdgeInsets.all(12),
@@ -88,12 +101,12 @@ class HomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Saldo Bonus',
+                                'Bonus Balance',
                                 style: TextStyle(color: Colors.black, fontSize: 16),
                               ),
                               SizedBox(height: 5),
                               Text(
-                                'Rp 50.000', 
+                                'Rp 50.000',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
@@ -109,7 +122,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             // Kotak 1
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -129,45 +142,53 @@ class HomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildActionItem(Icons.add_circle, 'Isi Saldo'),
-                  _buildActionItem(Icons.remove_circle, 'Tarik Saldo'),
-                  _buildActionItem(Icons.phone_android, 'Kirim Uang'),
-                  _buildActionItem(Icons.menu, 'Semua'),
+                  _buildActionItem('icons/TopUp.png', 'TopUp'),
+                  _buildActionItem('icons/CashOut.png', 'CashOut'),
+                  _buildActionItem('icons/SendMoney.png', 'Send Money'),
+                  _buildActionItem('icons/SeeAll.png', 'See All'),
                 ],
               ),
             ),
 
-            // Kotak 2 
-            Container(
-              margin: const EdgeInsets.all(16),
+            // Kotak 2
+            GridView.count(
+              crossAxisCount: 4,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: GridView.count(
-                crossAxisCount: 4,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+              children: [
+                _buildActionItem('icons/Pulsa.png', 'Pulsa/Data'),
+                _buildActionItem('icons/Electricity.png', 'Electricity'),
+                _buildActionItem('icons/HematLengkapByTelkomsel.png', 'Hemat Lengkap by Telkomsel'),
+                _buildActionItem('icons/KartuUangElektronik.png', 'Kartu Ulang Elektronik'),
+                _buildActionItem('icons/Gereja.png', 'Gereja'),
+                _buildActionItem('icons/Infaq.png', 'Infaq'),
+                _buildActionItem('icons/OtherDonations.png', 'Other Donation'),
+                _buildActionItem('icons/More.png', 'More'),
+              ],
+            ),
+
+            // Banner iklan geser manual
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              height: 150,
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
                 children: [
-                  _buildActionItem(Icons.phone_iphone, 'Pulsa/Data'),
-                  _buildActionItem(Icons.lightbulb, 'Listrik'),
-                  _buildActionItem(Icons.savings, 'Hemat Lengkap'),
-                  _buildActionItem(Icons.credit_card, 'Kartu Ulang Elektronik'),
-                  _buildActionItem(Icons.church, 'Gereja'),
-                  _buildActionItem(Icons.volunteer_activism, 'Infaq'),
-                  _buildActionItem(Icons.favorite, 'Donasi Lainnya'),
-                  _buildActionItem(Icons.more_horiz, 'Lainnya'),
+                  Image.asset('images/iklan1.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan2.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan3.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan4.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan5.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan6.png', fit: BoxFit.cover),
+                  Image.asset('images/iklan7.png', fit: BoxFit.cover),
                 ],
               ),
             ),
@@ -177,11 +198,27 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildActionItem(IconData icon, String label) {
+  Widget _buildIconWithBox(IconData icon) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Icon(icon, color: Colors.redAccent),
+    );
+  }
+
+  Widget _buildActionItem(String imagePath, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 30, color: Colors.redAccent),
+        Image.asset(
+          imagePath,
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
+        ),
         const SizedBox(height: 8),
         Text(
           label,

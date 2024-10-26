@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:uts_linkaja/screen/inbox_page.dart';
 import 'screen/splash_screen.dart';
 import 'screen/home_page.dart';
 import 'screen/history_page.dart';
 import 'screen/account_page.dart';
-
+import 'screen/inbox_page.dart'; 
 void main() {
   runApp(const MyApp());
 }
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         '/home': (context) => const MainScreen(), 
-        '/history': (context) => HistoryPage(),
+        '/history': (context) => const HistoryPage(),
         '/account': (context) => const AccountPage(),
+        '/inbox': (context) => const InboxPage(), 
       },
     );
   }
@@ -38,9 +40,9 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    HistoryPage(),
+    const HistoryPage(),
     const Center(child: Icon(Icons.qr_code, size: 100)), 
-    const Center(child: Icon(Icons.message, size: 100)), 
+    const InboxPage(), 
     const AccountPage(),
   ];
 
@@ -59,23 +61,23 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Beranda',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
-            label: 'Riwayat',
+            label: 'History',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.qr_code_scanner),
-            label: 'Bayar',
+            label: 'Pay',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
-            label: 'Pesan',
+            label: 'Inbox',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: 'Akun',
+            label: 'Account',
           ),
         ],
       ),

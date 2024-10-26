@@ -11,21 +11,28 @@ class SplashScreen extends StatelessWidget {
     });
 
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'images/linkaja_logo.png', 
-              width: 100,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/loading.png'),
+                fit: BoxFit.cover, 
+              ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'LinkAja',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const Positioned(
+            bottom: 20, 
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                'Version 4.37.0',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
